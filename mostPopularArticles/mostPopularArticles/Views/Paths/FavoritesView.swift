@@ -1,5 +1,5 @@
 //
-//  viewedView.swift
+//  sahredView.swift
 //  mostPopularArticles
 //
 //  Created by Mario Alberto Saldaña Martínez on 09/10/24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct viewedView: View {
+struct FavoritesView: View {
     var body: some View {
-        Text("Viewed")
+        Text("Shared")
     }
 }
 
 #Preview {
-    viewedView()
+    FavoritesView()
 }

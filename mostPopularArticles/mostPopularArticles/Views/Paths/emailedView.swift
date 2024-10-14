@@ -114,11 +114,24 @@ struct emailedView: View {
                                                             .foregroundColor(.gray)
                                                     }
                                                     
-                                                    Text(title)
-                                                        .font(.headline)
-                                                        .padding()
-                                                        .background(Color.gray.opacity(0.2))
-                                                        .cornerRadius(8)
+                                                    ZStack{
+                                                        Rectangle().foregroundStyle(.clear)
+                                                        Text(title)
+                                                            .font(.headline)
+                                                            .padding()
+                                                            .background(Color.gray.opacity(0.2))
+                                                            .cornerRadius(8)
+                                                            .frame(width: 250)
+                                                    }
+                                                        
+                                                            
+                                                    
+                                                    Image(systemName: "plus.app.fill")
+                                                        .font(.system(size: 30))
+                                                        .foregroundStyle(.green)
+                                                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10))
+                                                    
+                                                    
                                                 }
                                             }
 

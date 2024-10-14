@@ -14,13 +14,9 @@ struct MenuView: View {
                 Text("Emailed")
                 Image(systemName: "mail.stack.fill")
             }
-            sharedView().tabItem {
+            FavoritesView().tabItem {
                 Text("Shared")
                 Image(systemName: "shared.with.you")
-            }
-            viewedView().tabItem {
-                Text("Viewed")
-                Image(systemName: "eye.fill")
             }
         }
     }
