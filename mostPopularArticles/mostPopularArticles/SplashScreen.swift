@@ -12,7 +12,7 @@ struct SplashScreen: View {
     
     var body: some View {
         if isActive {
-            MenuView()
+            emailedView()
         }else {
             VStack {
                 Image("logoNYT")

@@ -17,6 +17,7 @@
 		B49F4FB02CB7059600092031 /* viewedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49F4FAF2CB7059600092031 /* viewedView.swift */; };
 		B49F4FB52CB70AB500092031 /* urlSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49F4FB42CB70AB500092031 /* urlSessionDataTask.swift */; };
 		B49F4FB72CB714B200092031 /* EmailedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49F4FB62CB714B200092031 /* EmailedModel.swift */; };
+		B49F4FB92CBCA2CC00092031 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49F4FB82CBCA2CC00092031 /* ArticleDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B49F4FAF2CB7059600092031 /* viewedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewedView.swift; sourceTree = "<group>"; };
 		B49F4FB42CB70AB500092031 /* urlSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlSessionDataTask.swift; sourceTree = "<group>"; };
 		B49F4FB62CB714B200092031 /* EmailedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailedModel.swift; sourceTree = "<group>"; };
+		B49F4FB82CBCA2CC00092031 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				B49F4FAA2CB7054C00092031 /* Paths */,
 				B49F4FA82CB704BD00092031 /* MenuView.swift */,
+				B49F4FB82CBCA2CC00092031 /* ArticleDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				B49F4FAC2CB7057300092031 /* emailedView.swift in Sources */,
 				B49F4FB72CB714B200092031 /* EmailedModel.swift in Sources */,
 				B49F4F9C2CB6FBDE00092031 /* SplashScreen.swift in Sources */,
+				B49F4FB92CBCA2CC00092031 /* ArticleDetail.swift in Sources */,
 				B49F4FA92CB704BD00092031 /* MenuView.swift in Sources */,
 				B49F4FAE2CB7057D00092031 /* sharedView.swift in Sources */,
 				B49F4FB52CB70AB500092031 /* urlSessionDataTask.swift in Sources */,

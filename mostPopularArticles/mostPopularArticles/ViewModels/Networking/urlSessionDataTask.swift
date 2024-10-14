@@ -17,20 +17,25 @@ enum ServiceUrl : String {
     case viewed = "viewed/"
     case shared = "shared/"
     case platform = "/facebook"
+    case apiKey = "qTl6HA9lEk9bHwEMNSrdjRAceMnSqQEZ"
 }
 
-class Session {
+class Session : ObservableObject {
+    @Published var emailed : Emailed?
     // Example: Creating a URLSessionDataTask for a GET request
-    func urlSesionInit(){
-        if let url = URL(string: "https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=qTl6HA9lEk9bHwEMNSrdjRAceMnSqQEZ") {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+    func urlSesionInit(url:String){
+        print(url)
+        
+        if let url = URL(string: url) {
+            let task = URLSession.shared.dataTask(with: url) { [self] data, response, error in
                 if let error = error {
                     // Handle the error
                     print("Error: \(error.localizedDescription)")
                 } else if let data = data {
                     // Process the data
                     let json = try? JSONDecoder().decode(Emailed.self, from: data)
-                    print("Data received: \(String(describing: json?.results[0].title))")
+                    self.emailed = json
+                    print("Data received: \(String(describing: emailed?.results.enumerated().map{index, title in String("\(index+1) \(title.title)")}))")
                 }
             }
             task.resume()
