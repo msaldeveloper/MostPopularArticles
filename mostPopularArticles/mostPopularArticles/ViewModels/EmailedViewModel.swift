@@ -41,4 +41,5 @@ class EmailedViewModel: ObservableObject {
             favorites = Set(decodedData)
         }
     }
+    
 }

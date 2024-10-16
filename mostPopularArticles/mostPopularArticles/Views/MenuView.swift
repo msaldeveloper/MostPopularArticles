@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct MenuView: View {
+    @StateObject private var emailedViewModel = EmailedViewModel()
+
     var body: some View {
-        TabView{
-            EmailedView().tabItem {
-                Text("Emailed")
-                Image(systemName: "mail.stack.fill")
-            }
-            FavoritesView().tabItem {
-                Text("FavoritesView")
-                Image(systemName: "heart.fill")
-            }
+        TabView {
+            EmailedView(emailedViewModel: emailedViewModel)
+                .tabItem {
+                    Label("Emailed", systemImage: "envelope")
+                }
+
+            FavoritesView(emailedViewModel: emailedViewModel)
+                .tabItem {
+                    Label("Favorites", systemImage: "star")
+                }
         }
     }
 }

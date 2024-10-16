@@ -6,7 +6,7 @@ struct ArticleDetail: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ZStack{
+            ZStack {
                 Color.black
                 HStack {
                     if let imageUrl = article.first?.1 {
@@ -29,14 +29,12 @@ struct ArticleDetail: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            
-
 
             Text(article.first?.2 ?? "")
                 .font(.title3)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-            
+
             Text(article.first?.0 ?? "title")
                 .font(.title)
                 .fontWeight(.bold)
@@ -45,7 +43,6 @@ struct ArticleDetail: View {
 
             Text(article.first?.4 ?? "")
                 .font(.body)
-
 
             Text("Published on \(article.first?.3 ?? "")")
                 .font(.footnote)
