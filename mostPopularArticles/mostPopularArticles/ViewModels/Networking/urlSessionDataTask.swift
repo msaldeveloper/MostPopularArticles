@@ -35,7 +35,7 @@ class Session : ObservableObject {
                     // Process the data
                     let json = try? JSONDecoder().decode(Emailed.self, from: data)
                     self.emailed = json
-                    print("Data received: \(String(describing: emailed?.results.enumerated().map{index, title in String("\(index+1) \(title.title)")}))")
+                    //print("Data received: \(String(describing: emailed?.results.enumerated().map{index, title in String("\(index+1) \(title.title)")}))")
                 }
             }
             task.resume()

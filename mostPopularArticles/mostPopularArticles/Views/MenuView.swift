@@ -10,13 +10,13 @@ import SwiftUI
 struct MenuView: View {
     var body: some View {
         TabView{
-            emailedView().tabItem {
+            EmailedView().tabItem {
                 Text("Emailed")
                 Image(systemName: "mail.stack.fill")
             }
             FavoritesView().tabItem {
-                Text("Shared")
-                Image(systemName: "shared.with.you")
+                Text("FavoritesView")
+                Image(systemName: "heart.fill")
             }
         }
     }

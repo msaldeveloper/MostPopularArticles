@@ -21,7 +21,7 @@ struct SplashScreen: View {
                 
                 Text("Most Popular Articles").font(.title).padding(.top)
             }.onAppear(perform: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isActive = true
                 }
             })
