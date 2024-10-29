@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject private var emailedViewModel = EmailedViewModel()
+    @ObservedObject private var  session = Session()
 
     var body: some View {
         TabView {
-            EmailedView(emailedViewModel: emailedViewModel)
+            EmailedView(session: session, emailedViewModel: emailedViewModel)
                 .tabItem {
                     Label("Emailed", systemImage: "envelope")
                 }

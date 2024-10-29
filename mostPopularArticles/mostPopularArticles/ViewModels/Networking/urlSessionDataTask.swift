@@ -56,6 +56,7 @@ class Session: ObservableObject {
         }
 
         if let httpResponse = response as? HTTPURLResponse {
+            print(" status code : \(httpResponse.statusCode)")
             if !(200...299).contains(httpResponse.statusCode) {
                 DispatchQueue.main.async {
                     self.errorMessage = "Error del servidor: \(httpResponse.statusCode)"

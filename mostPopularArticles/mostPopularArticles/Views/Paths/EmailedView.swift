@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmailedView: View {
-    var session = Session()
+    @ObservedObject  var session : Session
     @ObservedObject var emailedViewModel: EmailedViewModel
     // @StateObject private var emailedViewModelInstance = EmailedViewModel()
     @State private var dataEmailed: Emailed?
@@ -25,23 +25,26 @@ struct EmailedView: View {
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
                     .onAppear(perform: {
                         session.urlSesionInit(url: "\(ServiceUrl.base.rawValue)emailed/\(ServiceUrl.period1.rawValue)\(ServiceUrl.jsonValue.rawValue)\(ServiceUrl.apiKey.rawValue)")
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                            self.dataEmailed = session.emailed
+                        }
 
                     })
             }
 
             VStack {
                 NavigationStack {
+                    
                     if let dataEmailed = dataEmailed {
                         HStack {
                             Button(action: {
                                 selectedPeriod = 1
                                 session.urlSesionInit(url: "\(ServiceUrl.base.rawValue)emailed/\(ServiceUrl.period1.rawValue)\(ServiceUrl.jsonValue.rawValue)\(ServiceUrl.apiKey.rawValue)")
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                                    _ = session.$emailed.sink(receiveCompletion: { _ in
-                                    }, receiveValue: { data in
-                                        self.dataEmailed = data
-                                    })
-                                })
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                    self.dataEmailed = session.emailed
+                                }
+                                
                             }, label: {
                                 Text("1").font(.title).padding()
                                     .background(selectedPeriod == 1 ? Color.gray : Color.white).clipShape(Circle())
@@ -50,12 +53,9 @@ struct EmailedView: View {
                             Button(action: {
                                 selectedPeriod = 7
                                 session.urlSesionInit(url: "\(ServiceUrl.base.rawValue)emailed/\(ServiceUrl.period2.rawValue)\(ServiceUrl.jsonValue.rawValue)\(ServiceUrl.apiKey.rawValue)")
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                                    _ = session.$emailed.sink(receiveCompletion: { _ in
-                                    }, receiveValue: { data in
-                                        self.dataEmailed = data
-                                    })
-                                })
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                    self.dataEmailed = session.emailed
+                                }
                             }, label: {
                                 Text("7").font(.title).padding()
                                     .background(selectedPeriod == 7 ? Color.gray : Color.white).clipShape(Circle())
@@ -65,13 +65,9 @@ struct EmailedView: View {
                             Button(action: {
                                 selectedPeriod = 30
                                 session.urlSesionInit(url: "\(ServiceUrl.base.rawValue)emailed/\(ServiceUrl.period3.rawValue)\(ServiceUrl.jsonValue.rawValue)\(ServiceUrl.apiKey.rawValue)")
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                                    _ = session.$emailed.sink(receiveCompletion: { _ in
-                                    }, receiveValue: { data in
-                                        self.dataEmailed = data
-                                    })
-                                })
-
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                    self.dataEmailed = session.emailed
+                                }
                             }, label: {
                                 Text("30").font(.title).padding()
                                     .background(selectedPeriod == 30 ? Color.gray : Color.white).clipShape(Circle())
@@ -143,10 +139,7 @@ struct EmailedView: View {
                     } else {
                         ProgressView().onAppear(perform: {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                _ = session.$emailed.sink(receiveCompletion: { _ in
-                                }, receiveValue: { data in
-                                    self.dataEmailed = data
-                                })
+                                self.dataEmailed = session.emailed
                             }
 
                         })
