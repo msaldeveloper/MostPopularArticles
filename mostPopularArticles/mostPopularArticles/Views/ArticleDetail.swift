@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct ArticleDetail: View {
+    @ObservedObject var emailedViewModel: EmailedViewModel
     var article: [(String, URL?, String, String, String)]
 
     var body: some View {
@@ -29,6 +30,20 @@ struct ArticleDetail: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+            Button {
+                guard let imageUrl = article.first?.1 else {return}
+                let article = Article(title: article.first?.0 ?? "", imageUrl: imageUrl, author: article.first?.2 ?? "", publishedDate: article.first?.3 ?? "", abstract: article.first?.4 ?? "")
+                emailedViewModel.addToFavorites(article: article)
+
+                print(emailedViewModel.favorites)
+
+            } label: {
+                Image(systemName: "heart")
+                    .font(.system(size: 30))
+                    .foregroundStyle(.red)
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
+            }
+            .padding()
 
             Text(article.first?.2 ?? "")
                 .font(.title3)

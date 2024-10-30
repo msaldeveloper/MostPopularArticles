@@ -17,7 +17,7 @@ struct FavoritesView: View {
                 ScrollView {
                     ForEach(Array(emailedViewModel.favorites), id: \.self) { article in
                         NavigationLink {
-                            ArticleDetail(article: [(article.title, article.imageUrl, article.author, article.publishedDate, article.abstract)])
+                            ArticleDetail(emailedViewModel: emailedViewModel, article: [(article.title, article.imageUrl, article.author, article.publishedDate, article.abstract)])
                         } label: {
                             HStack(alignment: .center, spacing: 10) {
                                 if let url = article.imageUrl {

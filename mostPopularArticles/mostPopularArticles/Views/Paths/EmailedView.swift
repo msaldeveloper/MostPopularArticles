@@ -85,7 +85,7 @@ struct EmailedView: View {
                                 VStack(alignment: .leading, spacing: 10) {
                                     ForEach(articleData, id: \.0) { title, imageUrl, author, publishedDate, abstract in
                                         NavigationLink {
-                                            ArticleDetail(article: [(title, imageUrl, author, publishedDate, abstract)])
+                                            ArticleDetail(emailedViewModel: emailedViewModel, article: [(title, imageUrl, author, publishedDate, abstract)])
                                         } label: {
                                             HStack(alignment: .center, spacing: 10) {
                                                 if let url = imageUrl {
