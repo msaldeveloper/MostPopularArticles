@@ -76,4 +76,7 @@ Para ejecutar las pruebas:
 - Implementar filtrado y búsqueda de artículos.
 - Añadir notificaciones push para nuevos artículos populares.
 - Mejorar la interfaz de usuario con animaciones y efectos visuales.
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
